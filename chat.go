@@ -182,10 +182,16 @@ type ChatCompletionResponseFormat struct {
 	Type ChatCompletionResponseFormatType `json:"type,omitempty"`
 }
 
+type ConversationMode struct {
+	Kind    string `json:"kind"`
+	GizmoID string `json:"gizmo_id"`
+}
+
 // ChatCompletionRequest represents a request structure for chat completion API.
 type ChatCompletionRequest struct {
 	Model            string                        `json:"model"`
 	Messages         []ChatCompletionMessage       `json:"messages"`
+	ConversationMode ConversationMode              `json:"conversation_mode"`
 	MaxTokens        int                           `json:"max_tokens,omitempty"`
 	Temperature      float32                       `json:"temperature,omitempty"`
 	TopP             float32                       `json:"top_p,omitempty"`
